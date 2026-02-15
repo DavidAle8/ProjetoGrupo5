@@ -15,9 +15,9 @@ class LabirintoProblem(Problem):
         acts = []
 
         for action, (nx, ny) in {
-            'DIR': (x, y+1),
-            'ESQ': (x, y-1), 
-            'CIMA': (x-1, y), 
+            'DIR':   (x, y+1),
+            'ESQ':   (x, y-1), 
+            'CIMA':  (x-1, y), 
             'BAIXO': (x+1, y)}.items():
 
             if 0 <= nx < self.m and 0 <= ny < self.n:
@@ -42,12 +42,12 @@ class LabirintoProblem(Problem):
         
         
         
-    def path_cost(self, custo_acumulado, state2):
+    def path_cost(self, c, state1, action, state2):
         
         x, y = state2
         terreno = self.map_grid[x][y]
         
-        return custo_acumulado + terreno
+        return c + terreno
 
         
         

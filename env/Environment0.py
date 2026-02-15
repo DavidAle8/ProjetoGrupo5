@@ -10,17 +10,14 @@ class LabirintoEnvironment(Environment):
         self.map_grid = map_grid
         self.m = len(map_grid)
         self.n = len(map_grid[0])
-        # self.initial = initial
-        # self.goal = goal
     
     
     def execute_action(self, agent, action):
         
         x, y = agent.location
 
-        # Em matrizes:
-        #     linha cresce para baixo
-        #     coluna cresce para direita
+        # Para matrizes teremos que fazer desse jeito todas as direções, 
+        # pois linha cresce para baixo e coluna cresce para direita:
         #     CIMA    → (x-1, y)
         #     BAIXO   → (x+1, y)
         #     ESQ     → (x, y-1)
