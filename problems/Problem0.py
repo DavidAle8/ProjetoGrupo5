@@ -1,4 +1,4 @@
-
+from aima.search import Problem
 
 class LabirintoProblem(Problem):
 

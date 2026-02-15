@@ -1,7 +1,4 @@
-import sys
-import os
-
-from agents import Environment
+from aima.agents import Environment
 
 class LabirintoEnvironment(Environment):
     

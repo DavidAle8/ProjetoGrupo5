@@ -1,5 +1,4 @@
-from agents import Agent
-from search import astar_search
+from aima.search import astar_search
 from problems.Problem0 import LabirintoProblem
 
 
