@@ -7,10 +7,12 @@ class LabirintoEnvironment(Environment):
         self.map_grid = map_grid
         self.m = len(map_grid)
         self.n = len(map_grid[0])
+        self.expansions = 0 # Contador de expansões 
     
     
     def execute_action(self, agent, action):
         
+        self.expansions += 1
         x, y = agent.location
 
         # Para matrizes teremos que fazer desse jeito todas as direções, 
@@ -32,7 +34,7 @@ class LabirintoEnvironment(Environment):
             return
 
         if 0 <= nx < self.m and 0 <= ny < self.n:
-            if self.map_grid[nx][ny] != 1:
+            if self.map_grid[nx][ny] > 0:
                 agent.location = (nx, ny)
 
               

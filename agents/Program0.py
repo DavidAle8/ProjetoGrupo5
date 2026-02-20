@@ -9,6 +9,9 @@ def labirinto_program(goal, grid):
     def program(percept):
         nonlocal plan
 
+        if percept == goal:
+            return None
+
         if not plan:
             problem = LabirintoProblem(grid, percept, goal)
             solution = astar_search(problem)
