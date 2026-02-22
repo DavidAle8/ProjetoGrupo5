@@ -91,7 +91,7 @@ class LabirintoEnvironment(Environment):
                         row.append("#")   # parede
                     elif cell == 0:
                         row.append(".")   # chão
-                    elif cell == 2:
+                    elif cell == 3:
                         row.append("o")   # pedra
                     elif cell == 5:
                         row.append("~")   # lama
