@@ -60,7 +60,7 @@ class LabirintoEnvironment(Environment):
 
         terrenos = {
             0: ("chão", 1),
-            2: ("pedra", 2),
+            2: ("pedra", 3),
             5: ("lama", 5),
             7: ("espinhos", 7)
         }
