@@ -1,7 +1,0 @@
-Casos de testes:
- - goal_test funciona 
- - actions não permite atravessar parede e limite da matriz
- - path_cost acumula corretamente com base nos critérios estabelecidos
- - heurística: manhattan correta, nunca é negativa, é admissível
- - caso sem solução
- - escolha ótima

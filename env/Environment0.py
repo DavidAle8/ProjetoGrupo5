@@ -1,4 +1,3 @@
-
 from aima.agents import Environment
 
 class LabirintoEnvironment(Environment):
