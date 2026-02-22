@@ -5,11 +5,14 @@
 Esta seção apresenta a especificação formal do problema conforme o modelo clássico de problemas de busca descrito em *Artificial Intelligence: A Modern Approach* de Artificial Intelligence: A Modern Approach, e implementado no repositório aimacode/aima-python.
 
 O problema consiste em colocar um agente em um ambiente de um labirinto com paredes em volta e alguns obstáculos no meio da trajetória. 
+
 O mesmo deve escolher caminhos estratégicos para evitar ao máximo passar pelos obstáculos existentes no labirinto. 
+
 Cada obstáculo possui uma certa dificuldade para ser enfrentada e ultrapassada que terão um custo baseado no valor de sua célula. 
+
 O mapa possui:
 
-* Chão: valor 0 na célula, custa 0 para atravessar
+* Chão: valor 0 na célula, custa 1 para atravessar
 * Parede: valor 1 na célula, não é possível atravessar
 * Pedra no caminho: valor 3 na célula, custa 3 para atravessar
 * Lama no caminho: valor 5 na célula, custa 5 para atravessar
