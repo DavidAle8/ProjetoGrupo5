@@ -41,13 +41,22 @@ class LabirintoProblem(Problem):
             return (x+1, y)
         
         
-        
+    """ path_coast para ir calculando o custo acumulado do caminho total do agente do ponto inicial até o objetivo.
+        Como o custo do caminho é o valor da própria célula, e o chão que são células 0 custam 1
+        é verificado se estamos em chão (0), para que o custo acumulado (parametro c) receba o custo atual como 1
+        quando estiver em chão, se não, recebe o do proprio terreno que serão os obstáculos
+    """     
     def path_cost(self, c, state1, action, state2):
         
         x, y = state2
         terreno = self.map_grid[x][y]
         
-        return c + terreno
+        if terreno == 0:
+            custo_atual = 1
+        else:
+            custo_atual = terreno
+            
+        return c + custo_atual
 
         
         
