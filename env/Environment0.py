@@ -37,9 +37,9 @@ class LabirintoEnvironment(Environment):
 
                 print(f"Ação executada pelo agente: {action}")
                 print(f"Posição atual: {agent.location}")
-                print(f"Obstáculo atual do terreno      : {nome}")
-                print(f"Custo do obstáculo    : {custo}")
-                print(f"Custo total    : {-agent.performance}")
+                print(f"Obstáculo atual do terreno: {nome}")
+                print(f"Custo do obstáculo: {custo}")
+                print(f"Custo total: {-agent.performance}")
                 print("---------------------------------------- \n\n")
 
                 
@@ -60,7 +60,7 @@ class LabirintoEnvironment(Environment):
 
         terrenos = {
             0: ("chão", 1),
-            2: ("pedra", 2),
+            3: ("pedra", 3),
             5: ("lama", 5),
             7: ("espinhos", 7)
         }
@@ -68,4 +68,38 @@ class LabirintoEnvironment(Environment):
         if obstaculos in terrenos:
             return terrenos[obstaculos]
         else:
-            return ("desconhecido", obstaculos)
+            return ("Célula não idenficada.", obstaculos)
+
+    def render(self):
+        # assume agente único
+        agent = self.things[0]  
+        ax, ay = agent.location
+
+        print("-" * (self.n * 2))
+
+        for i in range(self.m):
+            row = []
+            for j in range(self.n):
+
+                if (i, j) == (ax, ay):
+                    row.append("A")  # agente
+
+                else:
+                    cell = self.map_grid[i][j]
+
+                    if cell == 1:
+                        row.append("#")   # parede
+                    elif cell == 0:
+                        row.append(".")   # chão
+                    elif cell == 3:
+                        row.append("o")   # pedra
+                    elif cell == 5:
+                        row.append("~")   # lama
+                    elif cell == 7:
+                        row.append("*")   # espinho
+                    else:
+                        row.append(str(cell))  # custo
+
+            print(" ".join(row))
+
+        print()
