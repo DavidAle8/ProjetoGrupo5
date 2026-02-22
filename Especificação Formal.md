@@ -289,9 +289,9 @@ Embora o algoritmo bidirectional_search esteja disponível no módulo search do 
 * `uniform_cost_search`
 * `greedy_best_first_graph_search`
 
-o bidirectional_search da AIMA não retorna um objeto Node, mas sim o custo mínimo encontrado.
+O bidirectional_search da AIMA não retorna um objeto Node, mas sim o custo mínimo encontrado.
 
-Nosso programa de agente foi estruturado para trabalhar com o padrão:
+O programa de agente foi estruturado para trabalhar com o padrão:
 
 ```python
 node = algoritmo(problem)
