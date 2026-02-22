@@ -9,8 +9,8 @@ functions.
 import sys
 from collections import deque
 
-from utils import *
-
+# from utils import *
+from .utils import *
 
 class Problem:
     """The abstract class for a formal problem. You should subclass
@@ -411,6 +411,10 @@ greedy_best_first_graph_search = best_first_graph_search
 
 # Greedy best-first search is accomplished by specifying f(n) = h(n).
 
+def greedy_best_first_search(problem, h=None, display=False):
+    
+    h = memoize(h or problem.h, 'h')
+    return best_first_graph_search(problem, lambda n: h(n), display)
 
 def astar_search(problem, h=None, display=False):
     """A* search is best-first graph search with f(n) = g(n)+h(n).

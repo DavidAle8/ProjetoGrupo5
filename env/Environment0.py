@@ -1,3 +1,4 @@
+
 from aima.agents import Environment
 
 class LabirintoEnvironment(Environment):
@@ -7,26 +8,18 @@ class LabirintoEnvironment(Environment):
         self.map_grid = map_grid
         self.m = len(map_grid)
         self.n = len(map_grid[0])
-        self.expansions = 0 # Contador de expansões 
+        self.path_history = []
     
     
     def execute_action(self, agent, action):
-        
-        self.expansions += 1
-        x, y = agent.location
 
-        # Para matrizes teremos que fazer desse jeito todas as direções, 
-        # pois linha cresce para baixo e coluna cresce para direita:
-        #     CIMA    → (x-1, y)
-        #     BAIXO   → (x+1, y)
-        #     ESQ     → (x, y-1)
-        #     DIR     → (x, y+1)
+        x, y = agent.location
 
         if action == 'DIR':
             nx, ny = x, y+1
         elif action == 'ESQ':
             nx, ny = x, y-1
-        elif action == 'CIMA':    
+        elif action == 'CIMA':
             nx, ny = x-1, y
         elif action == 'BAIXO':
             nx, ny = x+1, y
@@ -34,9 +27,46 @@ class LabirintoEnvironment(Environment):
             return
 
         if 0 <= nx < self.m and 0 <= ny < self.n:
-            if self.map_grid[nx][ny] > 0:
-                agent.location = (nx, ny)
+            if self.map_grid[nx][ny] != 1:
 
-              
+                agent.location = (nx, ny)
+                self.path_history.append((nx, ny))
+
+                nome, custo = self.info_terreno(nx, ny)
+
+                agent.performance -= custo
+
+                print(f"Ação executada pelo agente: {action}")
+                print(f"Posição atual: {agent.location}")
+                print(f"Obstáculo atual do terreno      : {nome}")
+                print(f"Custo do obstáculo    : {custo}")
+                print(f"Custo total    : {-agent.performance}")
+                print("---------------------------------------- \n\n")
+
+                
     def percept(self, agent):
         return agent.location
+    
+    
+    def is_done(self):
+        for agent in self.agents:
+            if agent.location == agent.program.goal:
+                return True
+        return False
+    
+
+    def info_terreno(self, x, y):
+
+        obstaculos = self.map_grid[x][y]
+
+        terrenos = {
+            0: ("chão", 1),
+            2: ("pedra", 2),
+            5: ("lama", 5),
+            7: ("espinhos", 7)
+        }
+
+        if obstaculos in terrenos:
+            return terrenos[obstaculos]
+        else:
+            return ("desconhecido", obstaculos)
