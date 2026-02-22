@@ -69,3 +69,37 @@ class LabirintoEnvironment(Environment):
             return terrenos[obstaculos]
         else:
             return ("desconhecido", obstaculos)
+
+    def render(self):
+        # assume agente único
+        agent = self.things[0]  
+        ax, ay = agent.location
+
+        print("-" * (self.n * 2))
+
+        for i in range(self.m):
+            row = []
+            for j in range(self.n):
+
+                if (i, j) == (ax, ay):
+                    row.append("A")  # agente
+
+                else:
+                    cell = self.map_grid[i][j]
+
+                    if cell == 1:
+                        row.append("#")   # parede
+                    elif cell == 0:
+                        row.append(".")   # chão
+                    elif cell == 2:
+                        row.append("o")   # pedra
+                    elif cell == 5:
+                        row.append("~")   # lama
+                    elif cell == 7:
+                        row.append("*")   # espinho
+                    else:
+                        row.append(str(cell))  # custo
+
+            print(" ".join(row))
+
+        print()
