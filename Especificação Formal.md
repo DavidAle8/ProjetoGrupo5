@@ -206,7 +206,7 @@ O problema modelado (Labirinto Traiçoeiro) é um problema clássico de busca em
 
 ---
 
-## 7.1 Algoritmos Utilizados
+## Algoritmos Utilizados
 
 Foram utilizados os seguintes algoritmos:
 
@@ -245,7 +245,7 @@ Reduz o espaço explorado quando o grafo é reversível, como no caso do labirin
 
 ---
 
-## 7.2 Algoritmos Não Utilizados
+## Algoritmos Não Utilizados
 
 Os seguintes algoritmos disponíveis na classe `search` não foram utilizados:
 
@@ -262,7 +262,7 @@ Os seguintes algoritmos disponíveis na classe `search` não foram utilizados:
 
 ---
 
-## 7.3 Justificativa para Não Utilização
+## Justificativa para Não Utilização
 
 ### Breadth-First Search (BFS)
 
