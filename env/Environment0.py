@@ -37,9 +37,9 @@ class LabirintoEnvironment(Environment):
 
                 print(f"Ação executada pelo agente: {action}")
                 print(f"Posição atual: {agent.location}")
-                print(f"Obstáculo atual do terreno      : {nome}")
-                print(f"Custo do obstáculo    : {custo}")
-                print(f"Custo total    : {-agent.performance}")
+                print(f"Obstáculo atual do terreno: {nome}")
+                print(f"Custo do obstáculo: {custo}")
+                print(f"Custo total: {-agent.performance}")
                 print("---------------------------------------- \n\n")
 
                 
@@ -60,7 +60,7 @@ class LabirintoEnvironment(Environment):
 
         terrenos = {
             0: ("chão", 1),
-            2: ("pedra", 3),
+            3: ("pedra", 3),
             5: ("lama", 5),
             7: ("espinhos", 7)
         }
@@ -68,7 +68,7 @@ class LabirintoEnvironment(Environment):
         if obstaculos in terrenos:
             return terrenos[obstaculos]
         else:
-            return ("desconhecido", obstaculos)
+            return ("Célula não idenficada.", obstaculos)
 
     def render(self):
         # assume agente único

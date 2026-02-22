@@ -59,13 +59,12 @@ class LabirintoProblem(Problem):
         return c + custo_atual
 
         
-        
+    """ Estamos usando a distancia de Manhattan para h(n) """
     def h(self, node):
         
         x1, y1 = node.state
         x2, y2 = self.goal
         
-        # Estamos usando a distancia de Manhattan para h(n)
         return abs(x1 - x2) + abs(y1 - y2)
 
 
