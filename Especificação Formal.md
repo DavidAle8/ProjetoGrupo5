@@ -192,6 +192,122 @@ O algoritmo é chamado dentro do Programa do Agente, conforme exigido pela arqui
 
 ---
 
+# 7. Algoritmos de Busca e Heurísticas
+
+Os algoritmos utilizados neste projeto foram selecionados a partir da classe `search` do repositório aimacode/aima-python, conforme o modelo clássico apresentado em Artificial Intelligence: A Modern Approach.
+
+O problema modelado (Labirinto Traiçoeiro) é um problema clássico de busca em grafo com:
+
+* espaço de estados discreto
+* ambiente determinístico
+* agente único
+* possibilidade de custos variáveis por célula
+* estado objetivo bem definido
+
+---
+
+## 7.1 Algoritmos Utilizados
+
+Foram utilizados os seguintes algoritmos:
+
+* `uniform_cost_search`
+* `astar_search`
+* `bidirectional_search`
+* `greedy_best_first_graph_search`
+* `best_first_graph_search` (utilizado indiretamente pelos algoritmos acima)
+
+### Justificativa
+
+### Uniform Cost Search
+
+Adequado para problemas com custos variáveis.
+Garante encontrar a solução de menor custo acumulado.
+
+### A* Search
+
+Utiliza custo acumulado somado a uma heurística admissível.
+Garante solução ótima quando a heurística é admissível e consistente.
+É mais eficiente que Uniform Cost Search na prática.
+
+### Greedy Best-First Search
+
+Utiliza apenas a heurística para guiar a busca.
+Não garante solução ótima, mas permite comparação de desempenho.
+
+### Bidirectional Search
+
+Realiza busca simultaneamente a partir do estado inicial e do objetivo.
+Reduz o espaço explorado quando o grafo é reversível, como no caso do labirinto.
+
+### Best-First Graph Search
+
+É a base estrutural utilizada por A* e Greedy, sendo usada indiretamente.
+
+---
+
+## 7.2 Algoritmos Não Utilizados
+
+Os seguintes algoritmos disponíveis na classe `search` não foram utilizados:
+
+* `breadth_first_tree_search`
+* `breadth_first_graph_search`
+* `depth_first_tree_search`
+* `depth_first_graph_search`
+* `depth_limited_search`
+* `iterative_deepening_search`
+* `recursive_best_first_search`
+* `hill_climbing`
+* `simulated_annealing_full`
+* `and_or_graph_search`
+
+---
+
+## 7.3 Justificativa para Não Utilização
+
+### Breadth-First Search (BFS)
+
+Encontra o caminho com menor número de passos, mas não considera custos diferentes nas células.
+Como o problema envolve custos variáveis, BFS pode retornar soluções não ótimas.
+
+---
+
+### Depth-First Search (DFS)
+
+Não garante solução ótima.
+Pode explorar caminhos muito profundos e ineficientes antes de encontrar o objetivo.
+
+---
+
+### Depth-Limited Search e Iterative Deepening
+
+Indicados quando a profundidade da solução é desconhecida e o custo é uniforme.
+Não consideram custo acumulado, sendo inadequados para o problema com pesos diferentes.
+
+---
+
+### Recursive Best-First Search (RBFS)
+
+É uma variação de A* com menor consumo de memória.
+Não foi utilizado por simplicidade de implementação, uma vez que A* já atende adequadamente aos requisitos do problema.
+
+---
+
+### Hill Climbing e Simulated Annealing
+
+São algoritmos de busca local.
+Não garantem solução ótima.
+Podem ficar presos em mínimos locais.
+O problema exige busca ótima baseada em custo acumulado.
+
+---
+
+### AND-OR Graph Search
+
+Indicado para problemas não determinísticos.
+O Labirinto Traiçoeiro é determinístico, logo este algoritmo não se aplica.
+
+---
+
 ## Conclusão
 
 O problema do Labirinto Traiçoeiro foi formalmente modelado como um problema clássico de busca, com:
@@ -202,4 +318,13 @@ O problema do Labirinto Traiçoeiro foi formalmente modelado como um problema cl
 * Objetivo claramente especificado
 * Custo de caminho acumulativo
 
+Foram selecionados algoritmos adequados a:
+
+* ambientes determinísticos
+* espaços de estados discretos
+* problemas com custos variáveis
+* necessidade de comparação entre estratégias
+
 Cada elemento formal possui correspondência direta com métodos implementados na classe `LabirintoProblem`, garantindo alinhamento entre a modelagem teórica e a implementação prática.
+
+
