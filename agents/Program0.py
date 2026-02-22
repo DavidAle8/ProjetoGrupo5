@@ -25,4 +25,3 @@ class LabirintoAgentProgram(SimpleProblemSolvingAgentProgram):
         if solution:
             return solution.solution()
         return []
-
