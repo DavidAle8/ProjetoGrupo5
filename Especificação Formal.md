@@ -285,9 +285,9 @@ Não consideram custo acumulado, sendo inadequados para o problema com pesos dif
 
 Embora o algoritmo bidirectional_search esteja disponível no módulo search do repositório aimacode/aima-python, ele não foi utilizado na versão final do projeto, pois, diferentemente dos algoritmos:
 
-*`astar_search`
-*`uniform_cost_search`
-*`greedy_best_first_graph_search`
+* `astar_search`
+* `uniform_cost_search`
+* `greedy_best_first_graph_search`
 
 o bidirectional_search da AIMA não retorna um objeto Node, mas sim o custo mínimo encontrado.
 
