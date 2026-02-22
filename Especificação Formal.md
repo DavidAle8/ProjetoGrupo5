@@ -185,8 +185,10 @@ O custo é atualizado somando o valor da célula de destino ao custo acumulado a
 O problema é resolvido utilizando algoritmos de busca implementados no repositório `aima-python`, como:
 
 * `uniform_cost_search`
-* `best_first_graph_search` (para busca gulosa)
 * `astar_search`
+* `bidirectional_search`
+* `greedy_best_first_graph_search`
+* `best_first_graph_search` (utilizado indiretamente pelos algoritmos acima)
 
 O algoritmo é chamado dentro do Programa do Agente, conforme exigido pela arquitetura Ambiente – Agente – Programa de Agente.
 
