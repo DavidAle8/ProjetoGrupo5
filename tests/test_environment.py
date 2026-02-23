@@ -106,8 +106,8 @@ def test_environment_nao_sai_matriz():
     assert agent.location == (0, 0)
 
 
-# O teste abaixo não está passando
-"""""
+
+
 def test_is_done():
     grid = [
         [0, 0],
@@ -119,13 +119,14 @@ def test_is_done():
     class DummyAgent(Agent):
         def __init__(self):
             super().__init__(program=lambda percept: None)
-            self.location = (1, 1)
             self.performance = 0
             self.goal = (1, 1)
 
     agent = DummyAgent()
-    env.add_thing(agent)
+
+    # O ambiente define a posição
+    env.add_thing(agent, location=(1, 1))
 
     assert env.is_done() is True
-"""
+
     
