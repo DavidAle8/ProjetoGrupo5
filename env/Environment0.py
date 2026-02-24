@@ -45,11 +45,10 @@ class LabirintoEnvironment(Environment):
                 
     def percept(self, agent):
         return agent.location
-    
-    
+
     def is_done(self):
         for agent in self.agents:
-            if agent.location == agent.program.goal:
+            if hasattr(agent, "goal") and agent.location == agent.goal:
                 return True
         return False
     
@@ -60,6 +59,7 @@ class LabirintoEnvironment(Environment):
 
         terrenos = {
             0: ("chão", 1),
+            2: ("pedra", 2),
             3: ("pedra", 3),
             5: ("lama", 5),
             7: ("espinhos", 7)
