@@ -114,11 +114,17 @@ def test_is_done():
 
     env = LabirintoEnvironment(grid)
 
+    class DummyProgram:
+        def __init__(self):
+            self.goal = (1, 1)
+
+        def __call__(self, percept):
+            return None
+
     class DummyAgent(Agent):
         def __init__(self):
-            super().__init__(program=lambda percept: None)
+            super().__init__(program=DummyProgram())
             self.performance = 0
-            self.goal = (1, 1)
 
     agent = DummyAgent()
 
@@ -126,5 +132,3 @@ def test_is_done():
     env.add_thing(agent, location=(1, 1))
 
     assert env.is_done() is True
-
-    

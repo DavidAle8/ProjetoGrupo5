@@ -48,10 +48,10 @@ class LabirintoEnvironment(Environment):
     
     def is_done(self):
         for agent in self.agents:
-            if hasattr(agent, "goal") and agent.location == agent.goal:
+            if agent.location == agent.program.goal:
                 return True
         return False
-    
+        
 
     def info_terreno(self, x, y):
 
