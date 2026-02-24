@@ -48,7 +48,7 @@ class LabirintoEnvironment(Environment):
     
     def is_done(self):
         for agent in self.agents:
-            if agent.location == agent.program.goal:
+            if hasattr(agent, "goal") and agent.location == agent.goal:
                 return True
         return False
     

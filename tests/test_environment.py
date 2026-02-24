@@ -50,7 +50,7 @@ def test_execute_action_desconta_custo():
 
 def test_info_terreno():
     grid = [
-        [0, 2],
+        [0, 3],
         [5, 7]
     ]
 
@@ -59,7 +59,7 @@ def test_info_terreno():
     nome, custo = env.info_terreno(0, 1)
 
     assert nome == "pedra"
-    assert custo == 2
+    assert custo == 3
 
 
 def test_environment_nao_atravessa_parede():
