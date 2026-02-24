@@ -40,7 +40,6 @@ class LabirintoEnvironment(Environment):
                 print(f"Obstáculo atual do terreno: {nome}")
                 print(f"Custo do obstáculo: {custo}")
                 print(f"Custo total: {-agent.performance}")
-                print("---------------------------------------- \n\n")
 
                 
     def percept(self, agent):
