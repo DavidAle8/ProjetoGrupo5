@@ -3,6 +3,7 @@ from agents.Program0 import LabirintoAgentProgram
 from aima.agents import Agent
 from aima.search import greedy_best_first_search, uniform_cost_search, astar_search
 import numpy as np
+import time
 
 
 mapa_1 = np.array([
@@ -30,8 +31,8 @@ pos_objetivo = (m-1,n-1)
 
 algoritmos = {
     "Greedy": greedy_best_first_search,
-    # "Uniform Cost": uniform_cost_search, 
-    # "A*": astar_search,
+    #"Uniform Cost": uniform_cost_search, 
+    #"A*": astar_search,
 }
 
 
@@ -51,12 +52,15 @@ def execucao_labirinto():
         
         agente = Agent(program)
         ambiente.add_thing(agente, location=pos_inicial)
+        print("Estado inicial: \n")
         ambiente.render()
+        print("--------------------------------- \n\n\n")
         
         while not ambiente.is_done():
             ambiente.step()
             ambiente.render()
-            #time.sleep(4) Para caso deseje averiguar cada passo lentamente para uma melhor visualização
+            print("---------------------------------------- \n\n")
+            time.sleep(0.8) #Para caso deseje averiguar cada passo lentamente para uma melhor visualização
         
         print("Local final:", agente.location)
         print("Performance:", agente.performance)
@@ -67,3 +71,4 @@ def execucao_labirinto():
         
         
 execucao_labirinto()
+
