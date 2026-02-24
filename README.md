@@ -9,7 +9,7 @@
 
 ---
 
-## 2. Estrutura esperada do projeto
+## 2. Estrutura do projeto
 
 A pasta raiz deve possuir a seguinte organização:
 
@@ -39,7 +39,7 @@ ModuleNotFoundError: 'agents' is not a package
 
 ---
 
-## 3. Criar ambiente virtual (recomendado)
+## 3. Criar ambiente virtual (apenas sujestão)
 
 Na raiz do projeto:
 
@@ -59,18 +59,19 @@ venv\Scripts\activate
 
 ---
 
-## 4. Instalar dependências necessárias
+## 4. Dependências necessárias
 
 O projeto depende de bibliotecas externas utilizadas pelo AIMA:
 
 ```
 pip install numpy
 pip install ipythonblocks
+pip install pytest
 ```
 
 ---
 
-## 5. Configurar PYTHONPATH
+## 5. Configuração PYTHONPATH
 
 Como o diretório `aima` está incluído localmente (não instalado via pip), é necessário informar ao Python onde encontrá-lo.
 
@@ -94,7 +95,7 @@ ModuleNotFoundError: No module named 'utils'
 
 ---
 
-## 6. Executar o projeto
+## 6. Execução do projeto
 
 Ainda na raiz do projeto:
 
